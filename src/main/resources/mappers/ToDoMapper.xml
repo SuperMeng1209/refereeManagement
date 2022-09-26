@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyh.refereeManagement.mapper.ToDoMapper">
+    <select id="findAllList" parameterType="com.lyh.refereeManagement.entity.ToDo" resultType="com.lyh.refereeManagement.entity.ToDo">
+        SELECT * FROM todo t where t.userid = #{userid} order by t.todoid desc
+    </select>
+
+    <insert id="setMsg" parameterType="com.lyh.refereeManagement.entity.ToMsg">
+        INSERT INTO todo (todoid,userid,title) VALUES (#{uuid} ,#{userid} ,#{msg})
+    </insert>
+</mapper>

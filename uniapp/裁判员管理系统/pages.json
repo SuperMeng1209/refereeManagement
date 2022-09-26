@@ -1,0 +1,31 @@
+{
+	"pages": [
+		{
+			"path":"pages/account/login/login",
+			"style": {
+				"navigationBarTitleText": "登录"
+			}
+		},
+		{
+			"path":"pages/dashboard/index",
+			"style": {
+				"navigationBarTitleText": "裁判员管理系统"
+			}
+		}
+	    ,{
+            "path" : "pages/account/me/me",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

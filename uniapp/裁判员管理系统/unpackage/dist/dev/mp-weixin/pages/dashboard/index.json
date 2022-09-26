@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "裁判员管理系统",
+  "usingComponents": {
+    "ifooter": "/pages/utils/footer",
+    "i-dashboard": "/pages/dashboard/dashboard",
+    "i-register": "/pages/account/register/register",
+    "i-report": "/pages/report/report",
+    "i-me": "/pages/account/me/me",
+    "i-years-register": "/pages/account/register/yearsRegister",
+    "i-train": "/pages/account/train/index"
+  }
+}

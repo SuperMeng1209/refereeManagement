@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyh.refereeManagement.mapper.UserMapper">
+    <!--    -->
+    <select id="login" parameterType="com.lyh.refereeManagement.entity.User" resultType="com.lyh.refereeManagement.entity.User">
+        SELECT * FROM user u where u.username = #{username} and u.password = #{password}
+    </select>
+
+    <insert id="addUser" parameterType="com.lyh.refereeManagement.entity.User">
+        INSERT
+        INTO user
+            (username,password,age,phone,realname,role,idcard,cm,kg,place,sex,certificateNum,certificateLeave)
+        VALUES
+            (#{username} , #{password} ,#{age} ,#{phone} ,#{realname}, #{role} ,#{idcard} ,#{cm} ,#{kg} ,#{place} ,#{sex} ,#{certificateNum}, #{certificateLeave});
+    </insert>
+
+    <select id="findByUser" parameterType="com.lyh.refereeManagement.entity.User" resultType="int">
+        SELECT userid FROM user u where u.username = #{username}
+    </select>
+
+    <select id="findById" parameterType="com.lyh.refereeManagement.entity.User" resultType="com.lyh.refereeManagement.entity.User">
+        SELECT * FROM user u where u.userid = #{userid}
+    </select>
+
+    <select id="findByRealName" parameterType="com.lyh.refereeManagement.entity.ToMsg" resultType="String">
+        SELECT userid FROM user u where u.realname = #{realname}
+    </select>
+
+    <update id="updateById" parameterType="com.lyh.refereeManagement.entity.User">
+        update user u set u.cm = #{cm} , u.kg = #{kg} , u.phone = #{phone} , u.certificateNum = #{certificateNum} , u.certificateLeave = #{certificateLeave}
+            WHERE u.userid = #{userid}
+    </update>
+</mapper>

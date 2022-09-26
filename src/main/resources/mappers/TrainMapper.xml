@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyh.refereeManagement.mapper.TrainMapper">
+    <insert id="addTrain" parameterType="com.lyh.refereeManagement.entity.Train">
+        INSERT
+        INTO train
+            (trainid,trainContent,status)
+        VALUES
+            (#{trainid} , #{trainContent} ,#{status})
+    </insert>
+
+    <select id="findAllList" parameterType="com.lyh.refereeManagement.entity.Train" resultType="com.lyh.refereeManagement.entity.Train">
+        SELECT * FROM train;
+    </select>
+
+    <select id="findStatus" parameterType="com.lyh.refereeManagement.entity.Train" resultType="int">
+        SELECT t.status FROM train t WHERE t.trainid = #{trainid}
+    </select>
+
+    <select id="findByUserId" parameterType="com.lyh.refereeManagement.entity.Train" resultType="String">
+        SELECT t.useridList FROM train t WHERE t.trainid = #{trainid}
+    </select>
+
+    <update id="addUserList" parameterType="com.lyh.refereeManagement.entity.Train">
+        UPDATE train
+        SET useridList = #{useridList}
+        WHERE trainid = #{trainid}
+    </update>
+
+    <update id="addPass" parameterType="com.lyh.refereeManagement.entity.Train">
+        UPDATE train SET isPass = #{isPass}, status = 0 WHERE trainid = #{trainid}
+    </update>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyh.refereeManagement.mapper.MsgMapper">
+    <select id="findAll" parameterType="com.lyh.refereeManagement.entity.Msg" resultType="com.lyh.refereeManagement.entity.Msg">
+        SELECT * FROM msg m where m.userid = #{userid} order by m.status desc
+    </select>
+
+    <update id="updateStatus" parameterType="com.lyh.refereeManagement.entity.Msg">
+        update msg m SET m.status = '已读' where m.msgid = #{msgid} and userid = #{userid}
+    </update>
+
+    <insert id="addMsg" parameterType="com.lyh.refereeManagement.entity.Msg">
+        INSERT
+        INTO msg
+            (userid,msg,status)
+        VALUES
+            (#{userid},#{msg},#{status})
+    </insert>
+
+    <insert id="addToMsg" parameterType="com.lyh.refereeManagement.entity.ToMsg">
+        INSERT INTO msg (userid,msg,status)
+            VALUES (#{userid} , #{msg} , '未读')
+    </insert>
+</mapper>
